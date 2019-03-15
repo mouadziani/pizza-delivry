@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Gestion livraison - Pizza</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h2>Ajouter nouvelle livraison</h2>
+		<h:form>
+			Nom Pizza	
+			<h:selectOneMenu id="libelle" required="true" value="#{ManagedPizza.libelle}">
+				<f:selectItems value="#{ManagedPizza.pizzaName}" />
+			</h:selectOneMenu>
+			<h:message for="libelle" />
+			<br />
+			Qte	
+			<h:inputText id="qte" required="true" value="#{ManagedPizza.qte}">
+				<f:convertNumber integerOnly="true" type="number" />
+			</h:inputText>
+			<h:message for="qte" />
+			<br />
+			Client	
+			<h:inputText id="client" required="true" value="#{ManagedPizza.client}"></h:inputText>
+			<h:message for="client" />
+			<br />
+			Adresse	
+			<h:inputText id="adresse" requiredMessage="Ce champs est requis" required="true" value="#{ManagedPizza.adresse}">
+			</h:inputText>
+			<h:message for="adresse" />
+			<br />
+			<h:commandButton value="Ajouter"
+				action="#{ManagedPizza.addCommandePizza()}" />
+		</h:form>
+	</f:view>
+</h:body>
+</html>
